@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dst-master
+spec:
+  selector:
+    matchLabels:
+      run: dst-master
+  template:
+    metadata:
+      labels:
+        run: dst-master
+    spec:
+      containers:
+      - name: dst-master
+        image: longfangsong/dst-server:f0c7dd590e13223aa90214c47f699ae1736afc04
+        env:
+        - name: SHARD_NAME
+          value: Master
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 10999
+          protocol: UDP
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dst-master-svc
+  namespace: longfangsong
+spec:
+  ports:
+  - port: 10999
+    protocol: UDP
+    targetPort: 10999
+  selector:
+    run: dst-master
+  type: ClusterIP
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dst-master-udp
+spec:
+  entryPoints:
+  - dst-master
+  routes:
+  - kind: Rule
+    services:
+    - name: dst-master-svc
+      port: 10999

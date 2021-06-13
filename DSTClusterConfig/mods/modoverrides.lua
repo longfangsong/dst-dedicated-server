@@ -1,16 +1,61 @@
--- Use this file to enable and configure your mods. The mod will only be available in the game
--- if you set "enabled=true"!!!
---
--- Also, during the container startup this file will be copied to both Master/ and Caves/ folders. What's setup here
--- will be available in both shards!
---
--- See the example below:
-
 return {
-  -- ["workshop-000000000"]={
-  --   configuration_options={
-  --     ["CustomModSetting"]="value"
-  --   },
-  --   enabled=true
-  -- },
+  ["workshop-1079538195"]={
+    configuration_options={
+      beebox=true,
+      birdcage=true,
+      cartographydesk=true,
+      cookpot=true,
+      dragonflychest=true,
+      dragonflyfurnace=true,
+      endtable=true,
+      firesuppressor=true,
+      icebox=true,
+      lightning_rod=true,
+      meatrack=true,
+      modsupport=false,
+      moondial=true,
+      mushroom_farm=true,
+      mushroom_light=true,
+      nightlight=true,
+      perdshrine=true,
+      pottedfern=true,
+      rainometer=true,
+      researchlab=true,
+      researchlab2=true,
+      researchlab3=true,
+      researchlab4=true,
+      resurrectionstatue=true,
+      saltlick=true,
+      scarecrow=true,
+      sculptingtable=true,
+      succulent_potted=true,
+      townportal=true,
+      treasurechest=true,
+      wardrobe=true,
+      winterometer=true 
+    },
+    enabled=true 
+  },
+  ["workshop-2074508776"]={
+    configuration_options={ handmake=20, onlyclose=false, range=2.3 },
+    enabled=true 
+  },
+  ["workshop-2078243581"]={
+    configuration_options={ Blue=0, Display="target", Green=0, Projectile=true, Red=1, Type="hit" },
+    enabled=true 
+  },
+  ["workshop-2191100488"]={ configuration_options={  }, enabled=true },
+  ["workshop-362175979"]={ configuration_options={ ["Draw over FoW"]="disabled" }, enabled=true },
+  ["workshop-378160973"]={
+    configuration_options={
+      ENABLEPINGS=true,
+      FIREOPTIONS=2,
+      OVERRIDEMODE=false,
+      SHAREMINIMAPPROGRESS=true,
+      SHOWFIREICONS=true,
+      SHOWPLAYERICONS=true,
+      SHOWPLAYERSOPTIONS=2 
+    },
+    enabled=true 
+  } 
 }
